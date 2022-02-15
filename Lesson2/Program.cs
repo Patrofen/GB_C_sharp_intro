@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 
 namespace Lesson2
 {
@@ -24,6 +25,10 @@ namespace Lesson2
 
             bool isValidMinTemp = float.TryParse(minTempStr, out float minTemp);
             bool isValidMaxTemp = float.TryParse(maxTempStr, out float maxTemp);
+
+            // Чтобы не замещать замещать точку на запятую можно использовать парсинг с CultureInfo.InvariantCulture
+            bool isValid = float.TryParse(Console.ReadLine(), NumberStyles.Float, CultureInfo.InvariantCulture,
+                out float result);
 
             if (isValidMinTemp && isValidMaxTemp)
             {
